@@ -15,8 +15,6 @@ from rest_framework.authtoken.models import Token
 
 
 
-
-
 class family(models.Model):
     family_id = models.CharField(max_length=30, primary_key=True)
     member_count = models.IntegerField()

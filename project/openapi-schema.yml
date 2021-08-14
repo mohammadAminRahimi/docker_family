@@ -1,0 +1,38 @@
+info:
+  description: ''
+  title: ''
+  version: ''
+openapi: 3.0.0
+paths:
+  /create-family:
+    post:
+      operationId: create-family_create
+      tags:
+      - create-family
+  /login:
+    post:
+      operationId: login_create
+      tags:
+      - login
+  /package-change:
+    post:
+      operationId: package-change_create
+      tags:
+      - package-change
+  /package-delete:
+    post:
+      operationId: package-delete_create
+      tags:
+      - package-delete
+  /package-selection:
+    post:
+      operationId: package-selection_create
+      tags:
+      - package-selection
+  /register:
+    post:
+      operationId: register_create
+      tags:
+      - register
+servers:
+- url: ''

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework_swagger',
     'drf_yasg',
+    'django_probes',
 
 ]
 
@@ -97,21 +98,49 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': 'family',
+#        'USER': 'root',
+#        'PASSWORD': 'password',
+#        'HOST' : 'mysqldb',
+#        'PORT' : '3306',
+#        'OPTIONS': {
+#            'init_command': 'SET sql_mode="STRICT_TRANS_TABLES"',
+#            'auth_plugin': 'mysql_native_password'
+#        }
+#    }
+#}
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'family',
-        'USER': 'root',
-        'PASSWORD': 'J4T823AWZ',
-        'HOST' : 'localhost',
-        'PORT' : '3306',
+        #'ENGINE':   'django.db.backends.mysql',
+        'ENGINE':   'mysql.connector.django',
+        'NAME':     'family',
+        'USER':     'root',
+        'PASSWORD': 'password',
+        'HOST':     'mysqldb',
+        'PORT':     '33060',
         'OPTIONS': {
-            'init_command': 'SET sql_mode="STRICT_TRANS_TABLES"'
+            'auth_plugin': 'mysql_native_password'
         }
     }
 }
-
-
+DATABASES = {
+    'default': {
+        'ENGINE':   'django.db.backends.mysql',
+       # 'ENGINE':   'django',
+        'NAME':     os.getenv('MYSQL_DATABASE'),
+        'USER':     os.getenv('MYSQL_USER'),
+        'PASSWORD': os.getenv('MYSQL_PASSWORD', 'password'),
+        'HOST':     'mysqldb',
+        'PORT':     os.getenv('MYSQL_PORT', 3306),
+        'CONN_MAX_AGE': None,
+        'OPTIONS': {
+            'auth_plugin': 'mysql_native_password'
+        }
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
